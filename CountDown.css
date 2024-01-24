@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* External CSS */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+#main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 48px;
+}
+
+nav {
+    background-color: #555;
+    padding: 10px;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    font-size: 20px;
+}
+
+.nav-links li {
+    margin: 0 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+}
+
+article {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+h2 {
+    color: rgba(94, 218, 26, 0.8);
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Countdown Container Styles */
+.countdown-container {
+    margin-top: 20px; /* Space above the countdown */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styles for the countdown text */
+#countdown {
+    font-size: 48px;
+    color: #000;
+    margin: 0 10px;
+}
