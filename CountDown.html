@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown to Dune 2</title>
     <link rel="stylesheet" href="CountDown.css"> 
     <style>
         body {
             background-color: #f3f3f3;
         }
+        
     </style>
 </head>
 <body>
@@ -21,32 +21,54 @@
         </ul>
     </nav>
     <section class="content">
-        <article>
-            <h2>Countdown to Dune 2 Release</h2>
-            <div class="countdown-container">
-                <p id="countdown"></p>
-            </div>            
-        </article>
+        <div id="countdowns">
+        </div>
     </section>
     <footer>
         <p>&copy;2024 CountDownTo...</p>
     </footer>
 
     <script>
-        const releaseDate = new Date('March 1, 2024').getTime();
-        const countdown = setInterval(() => {
-            const now = new Date().getTime();
-            const remainingTime = releaseDate - now;
-            const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-            document.getElementById('countdown').innerHTML = `Release in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-            if (remainingTime < 0) {
-                clearInterval(countdown);
-                document.getElementById('countdown').innerHTML = "Dune 2 has been released!";
-            }
-        }, 1000);
+        function createCountdown(name, date) {
+            const countdownContainer = document.createElement('div');
+            countdownContainer.classList.add('countdown-container');
+            countdownContainer.innerHTML = `
+                <h2>CountDownTo ${name} Release</h2>
+                <p id="countdown-${name.toLowerCase().replace(/\s+/g, '-')}" class="countdown"></p>
+            `;
+    
+            document.getElementById('countdowns').appendChild(countdownContainer);
+    
+            const releaseDate = new Date(date).getTime();
+            const countdown = setInterval(() => {
+                const now = new Date().getTime();
+                const remainingTime = releaseDate - now;
+                const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+    
+                const countdownElement = document.getElementById(`countdown-${name.toLowerCase().replace(/\s+/g, '-')}`);
+                countdownElement.innerHTML = `Release in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    
+                if (remainingTime < 0) {
+                    clearInterval(countdown);
+                    countdownElement.innerHTML = `${name} has been released!`;
+                }
+            }, 1000);
+        }
+    
+        createCountdown("Dune 2", "March 1, 2024");
+        createCountdown("Your Mama", "July 29, 2029");
+        createCountdown("Your Baba", "January 29, 2024");
+        createCountdown("Your Grandma", "February 29, 2024");
+        createCountdown("Your Grandpa", "March 29, 2024");
+        createCountdown("Your 1", "February 18, 2024");
+        createCountdown("Your 2", "February 27, 2024");
+        createCountdown("Your 3", "February 16, 2024");
+        createCountdown("Your 8", "February 16, 2024");
+
     </script>
+    
 </body>
 </html>

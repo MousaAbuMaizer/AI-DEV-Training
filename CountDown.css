@@ -55,8 +55,11 @@ article {
 }
 
 h2 {
-    color: rgba(94, 218, 26, 0.8);
+    background: linear-gradient(to right, #ff852d, #ee0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
+    font-size: 35px;
 }
 
 footer {
@@ -66,17 +69,27 @@ footer {
     text-align: center;
 }
 
-/* Countdown Container Styles */
 .countdown-container {
-    margin-top: 20px; /* Space above the countdown */
     font-size: 24px;
     font-weight: bold;
     color: #333;
+    background-color: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles for the countdown text */
-#countdown {
-    font-size: 48px;
-    color: #000;
-    margin: 0 10px;
+#countdowns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+@media (min-width: 568px) {
+    .countdown-container {
+        width: calc(25% - 20px); 
+        margin: 10px; 
+    }
 }
